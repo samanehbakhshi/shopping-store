@@ -12,10 +12,10 @@ function Routers() {
     <Route path='/' element={<Navigate to='home'/>}/>
     <Route path='home' element={<Home/>}/>
     <Route path='shop' element={<Shop/>}/>
+    <Route path='shop/:id' element={<ProductDetails/>}/>
     <Route path='cart' element={<Cart/>}/>
     <Route path='login' element={<Login/>}/>
     <Route path='signup' element={<Signup/>}/>
-    <Route path='shop/:id' element={<ProductDetails/>}/>
     <Route path='checkout' element={<Checkout/>}/>
   </Routes> );
 }

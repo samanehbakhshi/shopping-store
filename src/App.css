@@ -1,0 +1,38 @@
+:root {
+  --black: #343434;
+  --text-light: #8d8d8d;
+  --bg-light: #e8e8e8;
+  --bg: #f8e367;'
+  --bg-tint: #faeb95;
+  --bg-shade: #dfcc5d;
+  --shadow1: 0px 13px 48px -1px rgba(0, 0, 0, 0.25);
+  --shadow2: 0px 13px 46px rgba(0, 0, 0, 0.13);
+  --pink: #fe956f;
+  --pink-light: #eeac95;
+  --pink-tint: #ffeae2;
+  --pink-shade: #e58664;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: none;
+}
+::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: skyblue;
+  border-radius: 1ex;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

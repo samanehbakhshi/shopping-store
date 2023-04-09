@@ -1,0 +1,50 @@
+.s-container {
+  position: relative;
+  margin-bottom: 5rem;
+}
+.s-container .swiper {
+  width: 60%;
+  height: 10rem;
+  position: unset;
+}
+.s-container .swiper-button-prev {
+  left: 6rem;
+}
+.s-container .swiper-button-next {
+  right: 6rem;
+}
+.s-container .swiper-button-prev,
+.s-container .swiper-button-next {
+  color: black;
+}
+
+@media screen and (max-width: 865px) {
+  .s-container .swiper {
+    width: 90%;
+    height: 10rem;
+  }
+  .s-container .swiper-button-prev,
+  .s-container .swiper-button-next {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .s-container .swiper {
+    width: 60%;
+  }
+  .s-container .swiper-button-prev,
+  .s-container .swiper-button-next {
+    display: block;
+    padding: -2.5rem;
+    margin-right:  -5%;
+    margin-left: -5%;
+  }
+}
+
+@media  screen and (max-width: 530px) {
+  .s-container .swiper-button-prev,
+  .s-container .swiper-button-next {
+    display: none;
+  }
+}
