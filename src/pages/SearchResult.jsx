@@ -1,5 +1,12 @@
+import { useParams } from "react-router-dom";
+
 function SearchResult() {
-  return ( <div>Search Result</div> );
+  const {query} = useParams();
+  return ( <>
+  <div>Search Result for "{query}"</div> 
+ 
+  </>
+  );
 }
 
 export default SearchResult;

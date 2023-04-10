@@ -20,7 +20,7 @@ const Header = () => {
     setShowMenu((showMenu) => !showMenu);
   };
 
-  const handleSearch = (event, isOpen) => {
+  const handleSearchBox = (event, isOpen) => {
     isOpen ? setOpenSearchBox(true): setOpenSearchBox(false);
     // setOpenSearchBox(true);
     console.log("search", event, openSearchBox);
@@ -28,24 +28,6 @@ const Header = () => {
 
   return (
     <>
-      {openSearchBox && (
-        <SearchBar handleSearch={handleSearch}/>
-        // <div className={css.container}>
-        //   <form onSubmit={handleSearchResult}>
-        //     <input type="text" value={searchedTerm} onChange={(event)=>searchInputHandler(event)}></input>
-        //   </form>
-        //   {/* <p>search result</p> */}
-        //   <div className={css.buttons}>
-        //     <Link to={openSearchResult ? 'search': ''}>
-        //       <BsSearch />
-        //     </Link>
-        //     <a link="#" onClick={(event) => closeSearch(event)}>
-        //       X
-        //     </a>
-        //   </div>
-        // </div>
-      )}
-      {!openSearchBox && (
         <div className={css.container}>
           <div className={css.logo}>
             <img src={logo} alt="site logo" />
@@ -73,16 +55,21 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-            <BsSearch onClick={(event)=>handleSearch(event, true)}/>
+            <BsSearch onClick={(event)=>handleSearchBox(event, true)}/>
             <span className={css.cart__box}>
               <CgShoppingBag className={css.cart} />
               <span className={css.badge}>1</span>
             </span>
           </div>
         </div>
-      )}
-    </>
-  );
+        {openSearchBox && (
+          <div className={css['search_header']}>
+            <SearchBar handleSearchBox={handleSearchBox}/>
+        </div>
+          )
+        }
+     </>
+  )
 };
 
 export default Header;

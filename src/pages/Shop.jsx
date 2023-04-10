@@ -4,6 +4,7 @@ import { BiArrowToBottom, BiCart } from "react-icons/bi";
 import { useState } from "react";
 import DropDown from "../components/DropDownMenu/DropDown";
 import ProductShopList from "../components/UI/ProductShopList";
+import Header from "../components/Header/Header";
 import Image from "../assets/img1.png";
 import Pro1 from "../assets/1.jpg";
 import Pro2 from "../assets/2.jpg";
@@ -58,52 +59,54 @@ function Shop() {
   ];
 
   return (
-    <div className={css["shop_container"]}>
-      <div className={css["shop__header"]}>
-        <h1>Shop</h1>
-      </div>
-      <div className={css.container}>
-        <div className={css["shop__products"]}>
-          <div className={css["shop__lefthand"]}>
-            <div className={css["category__list"]}>
-              <span className={css["category__title"]}>Product categoreis</span>
-              <ul>
-                <li>Beauty</li>
-                <li>Facial</li>
-                <li>Men</li>
-                <li>Health</li>
-              </ul>
-            </div>
-            <div className={css.searchbox}>
-              <input type="text" placeholder="Search Products..."></input>
-              <BsSearch />
-            </div>
-            <div className={css["top_ratedproduct"]}>
-              <span>Top rated products</span>
-              {data.map((product) => (
-                <div className={css.product}>
-                  <img alt="" src={product.originalSrc} />
-                  <div className={css["product__details"]}>
-                    <span>{product.name}</span>
-                    <span>{product.description}</span>
-                    <span>${product.price}</span>
+        <div className={css["shop_container"]}>
+        <div className={css["shop__header"]}>
+          <h1>Shop</h1>
+        </div>
+        <div className={css.container}>
+          <div className={css["shop__products"]}>
+            <div className={css["shop__lefthand"]}>
+              <div className={css["category__list"]}>
+                <span className={css["category__title"]}>
+                  Product categoreis
+                </span>
+                <ul>
+                  <li>Beauty</li>
+                  <li>Facial</li>
+                  <li>Men</li>
+                  <li>Health</li>
+                </ul>
+              </div>
+              <div className={css.searchbox}>
+                <input type="text" placeholder="Search Products..."></input>
+                <BsSearch />
+              </div>
+              <div className={css["top_ratedproduct"]}>
+                <span>Top rated products</span>
+                {data.map((product) => (
+                  <div className={css.product}>
+                    <img alt="" src={product.originalSrc} />
+                    <div className={css["product__details"]}>
+                      <span>{product.name}</span>
+                      <span>{product.description}</span>
+                      <span>${product.price}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className={css["shop__righthand"]}>
-            <div className={css["right__title"]}>
-              <DropDown options={options} />
-              <div className={css["result"]}>
-                <span>showing all 2 results.</span>
+                ))}
               </div>
             </div>
-            <ProductShopList data={data} />
+            <div className={css["shop__righthand"]}>
+              <div className={css["right__title"]}>
+                <DropDown options={options} />
+                <div className={css["result"]}>
+                  <span>showing all 2 results.</span>
+                </div>
+              </div>
+              <ProductShopList data={data} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

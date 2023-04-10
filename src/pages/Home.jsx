@@ -4,6 +4,8 @@ import Slider from "../components/Slider/Slider";
 import Virtual from "../components/Virtual/Virtual";
 import Products from "../components/Products/Products";
 import Testimonial from "../components/Testimonials/Testimonials";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import { ProductsData } from "../data/products";
 import { useState } from "react";
 function Home() {
