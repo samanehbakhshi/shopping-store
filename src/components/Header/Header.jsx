@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import css from "./Header.module.css";
 import logo from "../../assets/logo.png";
 import { CgShoppingBag } from "react-icons/cg";
 import { GoThreeBars } from "react-icons/go";
+import { BsSearch } from "react-icons/bs";
+import SearchBar from "../Search/SearchBar";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -18,22 +20,30 @@ const Header = () => {
     setShowMenu((showMenu) => !showMenu);
   };
 
-  const handleSearch = (event) => {
-    setOpenSearchBox(true);
+  const handleSearch = (event, isOpen) => {
+    isOpen ? setOpenSearchBox(true): setOpenSearchBox(false);
+    // setOpenSearchBox(true);
     console.log("search", event, openSearchBox);
   };
-  const closeSearch=(event) => {
-    event.preventDefault();
-    setOpenSearchBox(false)
-  }
+
   return (
     <>
       {openSearchBox && (
-        <div className={css.container}>
-          <p>search result</p>
-          <button onClick={(event)=> closeSearch(event)}>
-          </button>
-        </div>
+        <SearchBar handleSearch={handleSearch}/>
+        // <div className={css.container}>
+        //   <form onSubmit={handleSearchResult}>
+        //     <input type="text" value={searchedTerm} onChange={(event)=>searchInputHandler(event)}></input>
+        //   </form>
+        //   {/* <p>search result</p> */}
+        //   <div className={css.buttons}>
+        //     <Link to={openSearchResult ? 'search': ''}>
+        //       <BsSearch />
+        //     </Link>
+        //     <a link="#" onClick={(event) => closeSearch(event)}>
+        //       X
+        //     </a>
+        //   </div>
+        // </div>
       )}
       {!openSearchBox && (
         <div className={css.container}>
@@ -63,13 +73,7 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-
-            <input
-              type="text"
-              className={css.search}
-              placeholder="search"
-              onClick={(event) => handleSearch(event)}
-            ></input>
+            <BsSearch onClick={(event)=>handleSearch(event, true)}/>
             <span className={css.cart__box}>
               <CgShoppingBag className={css.cart} />
               <span className={css.badge}>1</span>
