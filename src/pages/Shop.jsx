@@ -3,6 +3,7 @@ import { BsBasket, BsSearch } from "react-icons/bs";
 import { BiArrowToBottom, BiCart } from "react-icons/bi";
 import { useState } from "react";
 import DropDown from "../components/DropDownMenu/DropDown";
+import TitleBar from "../components/TitleBar/TitleBar";
 import ProductShopList from "../components/UI/ProductShopList";
 import Header from "../components/Header/Header";
 import Image from "../assets/img1.png";
@@ -60,9 +61,7 @@ function Shop() {
 
   return (
         <div className={css["shop_container"]}>
-        <div className={css["shop__header"]}>
-          <h1>Shop</h1>
-        </div>
+        <TitleBar title='shop'/>
         <div className={css.container}>
           <div className={css["shop__products"]}>
             <div className={css["shop__lefthand"]}>

@@ -6,19 +6,7 @@
   margin: 5em 10rem;
   max-width: 80%;
 }
-.shop__header {
-  background-color: rgb(241, 238, 238);
-  height: 8rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.shop__header h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
+
 
 .shop__products {
   display: grid;

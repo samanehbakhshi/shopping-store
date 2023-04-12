@@ -6,17 +6,22 @@ import Slider from "../Slider/Slider";
 import Products from "../Products/Products";
 import Virtual from "../Virtual/Virtual";
 import Testimonial from "../Testimonials/Testimonials";
+import { useLocation } from "react-router-dom";
 
 function Layout() {
+  const location = useLocation()
+  const pathname = location.pathname
+  console.log(pathname)
+ 
   return (
-    <div>
-      <Header />
+    <>
+      <Header styles={pathname.toString()}/>
 
-      <div>
+      <main>
         <Routers />
-      </div>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

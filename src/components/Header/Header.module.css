@@ -1,13 +1,24 @@
 .container {
+  /* background-color: white; */
   display: flex;
-  padding: 1.5rem;
-  background-color: white;
-  /* height: 4rem; */
+  padding: 1.5rem; 
+  height: 4rem;
+  justify-content: space-between;
+  /* width: inherit; */
+}
+.fixed-container{
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--bg-light);
 }
 .logo {
   display: flex;
   align-items: center;
-  flex: 1;
   gap: 1rem;
 }
 .logo > img {
@@ -21,14 +32,15 @@
 .right {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .menu {
   align-items: center;
   list-style: none;
   display: flex;
-  gap: 2rem;
+  justify-content: space-between; 
+  gap: 1rem;
   font-weight: 400;
 }
 .active {
@@ -38,13 +50,12 @@
   color: #fe956f;
   cursor: pointer;
 }
-.search {
-  width: 7rem;
-  height: 30%;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem;
+
+.icons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .cart__box {
   position: relative;
