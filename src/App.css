@@ -12,6 +12,7 @@
   --pink-tint: #ffeae2;
   --pink-shade: #e58664;
 }
+
 .App {
   display: flex;
   flex-direction: column;

@@ -4,19 +4,19 @@
   padding: 1.5rem; 
   height: 4rem;
   justify-content: space-between;
-  /* width: inherit; */
 }
 .fixed-container{
   display: flex;
+  width: 97%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-  width: 100%;
   padding: 0 1.5rem;
   border-bottom: 1px solid var(--bg-light);
 }
 .logo {
+  flex: 2;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -30,6 +30,7 @@
 }
 
 .right {
+  flex: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,13 +57,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  cursor: pointer;
 }
 .cart__box {
   position: relative;
 }
-.cart {
-  width: 1.5rem;
-  height: 1.5rem;
+.svg{
+  width: 1.4rem;
+  height: 1.2rem;
 }
 .badge {
   position: absolute;

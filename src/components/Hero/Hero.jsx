@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Hero() {
   const transition = { duration: 3, type: "spring" };
   return (
-    <div className={css.container}>
+    <div className={css.container} id="backtotop">
       {/* left side */}
       <div className={css.h_sides}>
         <span className={css.text1}>Skin Protection Cream</span>

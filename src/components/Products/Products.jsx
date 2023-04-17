@@ -24,7 +24,7 @@ function Products({ data }) {
     {type: 'foundation', display: 'Foundation'},
   ]
   return (
-    <div className={css["p-container"]}>
+    <div className={css["p-container"]} id="products">
       <img alt="product" src={Plan} />
       <h1>Our Feature Products</h1>
       <div className={css.products}>

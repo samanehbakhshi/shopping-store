@@ -3,9 +3,9 @@ import Shade from "../../assets/testimonialHero.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { TestimonialsData } from "../../data/testimonials";
 
-function Testimonial() {
+function Testimonials() {
   return (
-    <div className={css.Testimonial}>
+    <div className={css.Testimonial} id="testimonials">
       <div className={css.wrapper}>
         <div className={css.container}>
           <span>top rated</span>
@@ -55,4 +55,4 @@ function Testimonial() {
   );
 }
 
-export default Testimonial;
+export default Testimonials;

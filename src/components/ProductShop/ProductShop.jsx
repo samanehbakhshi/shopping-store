@@ -1,8 +1,10 @@
-
 import css from "./ProductShop.module.css";
 import { useState } from "react";
 import { BiCart } from "react-icons/bi";
+import { Link, useNavigate } from "react-router-dom";
+
 function ProductShop({ product }) {
+  const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [imageSrc, setImageSrc] = useState(product.originalSrc);
   const handleSelect = (event) => {
@@ -23,9 +25,12 @@ function ProductShop({ product }) {
     }
   };
   console.log(isHovered);
+  const handleProductDetail = (id) => {
+    navigate(`/shop/${id}`)
+  };
   return (
     <div className={css.productcard}>
-      <div className={css["image_container"]}>
+      <div className={css["image_container"]} onClick={()=>handleProductDetail(product.id)}>
         <img
           className={css.image}
           onMouseOver={handleHover}
@@ -37,14 +42,16 @@ function ProductShop({ product }) {
         <div className={css.overlay}></div>
       </div>
 
-      <div className={css["product__detail"]}>
+      <div className={css["product__detail"]} onClick={()=>handleProductDetail(product.id)}>
         <span className={css["product__name"]}>{product.name}</span>
         <span className={css["product__category"]}>{product.description}</span>
         <span className={css["product__price"]}>${product.price}</span>
       </div>
       <div className={css["product__btn"]}>
-        <span>Add To cart</span>
-        <BiCart />
+        <Link to="checkout">
+          Add To cart
+          <BiCart />
+        </Link>
       </div>
     </div>
   );
