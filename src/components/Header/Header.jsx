@@ -125,7 +125,6 @@ const Header = ({ styles }) => {
                 )}
               </li>
             ))}
-          </ul>
           <div className={css.icons}>
             <BsSearch onClick={(event) => handleSearchBox(event, true)} className={css.svg} />
             <span className={css.cart__box}>
@@ -133,6 +132,7 @@ const Header = ({ styles }) => {
               <span className={css.badge}>1</span>
             </span>
           </div>
+          </ul>
         </div>
       </div>
       {openSearchBox && (
