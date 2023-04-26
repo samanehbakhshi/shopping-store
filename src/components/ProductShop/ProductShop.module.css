@@ -44,7 +44,8 @@
 .image{
   display: block;
   width: 100%;
-  height: auto;
+  height: 500px;
+  object-fit: contain;
   transition: transform 0.5s ease-in-out;
   transform-origin: center center;
 }
@@ -62,11 +63,11 @@
   transition: opacity 0.5s ease-in-out;
 }
 .image_container:hover .image{
-  transform: scale(1.2);
+  transform: scaleZ(1.1)
 }
 .image_container:hover .overlay{
   transform: scale(2) !important;
-  opacity: 0.2;
+  opacity: 0.1;
 }
 .product__detail{
   display: flex;

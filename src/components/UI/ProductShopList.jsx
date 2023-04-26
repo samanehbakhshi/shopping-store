@@ -1,9 +1,11 @@
 import css from '../Styles/Shop.module.css';
 import ProductShop from '../ProductShop/ProductShop';
-function ProductShopList({data}) {
+import { useSelector } from 'react-redux';
+function ProductShopList() {
+  const products = useSelector(state=>state.product.products)
   return ( 
     <div className={css['product__list']}>
-      {data.map((product,i)=>(
+      {products.map((product,i)=>(
         <ProductShop key={i} product={product}/>
       ))}
     </div>

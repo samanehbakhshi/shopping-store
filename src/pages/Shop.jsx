@@ -2,6 +2,7 @@ import css from "../components/Styles/Shop.module.css";
 import { BsBasket, BsSearch } from "react-icons/bs";
 import { BiArrowToBottom, BiCart } from "react-icons/bi";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import DropDown from "../components/DropDownMenu/DropDown";
 import TitleBar from "../components/TitleBar/TitleBar";
 import ProductShopList from "../components/UI/ProductShopList";
@@ -16,6 +17,7 @@ import Pro6 from "../assets/6.jpg";
 
 function Shop() {
   const [selectedOption, setSelectedOption] = useState("");
+  const products = useSelector(state => state.product.products)
 
   const options = [
     { label: "Default sorting", value: "default sorting" },
@@ -32,32 +34,32 @@ function Shop() {
     },
   ];
 
-  const data = [
-    {
-      id: 0,
-      name: "shampoo",
-      description: "skin Care",
-      price: 32,
-      originalSrc: Pro1,
-      hoverSrc: Pro4,
-    },
-    {
-      id: 1,
-      name: "soap",
-      description: "skin washing",
-      price: 2.43,
-      originalSrc: Pro2,
-      hoverSrc: Pro5,
-    },
-    {
-      id: 2,
-      name: "brush",
-      description: "tooth brush",
-      price: 32.4,
-      originalSrc: Pro3,
-      hoverSrc: Pro6,
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: 0,
+  //     name: "shampoo",
+  //     description: "skin Care",
+  //     price: 32,
+  //     originalSrc: Pro1,
+  //     hoverSrc: Pro4,
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "soap",
+  //     description: "skin washing",
+  //     price: 2.43,
+  //     originalSrc: Pro2,
+  //     hoverSrc: Pro5,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "brush",
+  //     description: "tooth brush",
+  //     price: 32.4,
+  //     originalSrc: Pro3,
+  //     hoverSrc: Pro6,
+  //   },
+  // ];
 
   return (
         <div className={css["shop_container"]}>
@@ -82,7 +84,7 @@ function Shop() {
               </div>
               <div className={css["top_ratedproduct"]}>
                 <span>Top rated products</span>
-                {data.map((product) => (
+                {products.map((product) => (
                   <div className={css.product}>
                     <img alt="" src={product.originalSrc} />
                     <div className={css["product__details"]}>
@@ -101,7 +103,7 @@ function Shop() {
                   <span>showing all 2 results.</span>
                 </div>
               </div>
-              <ProductShopList data={data} />
+              <ProductShopList />
             </div>
           </div>
         </div>

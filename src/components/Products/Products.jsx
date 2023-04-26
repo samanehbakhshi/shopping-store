@@ -1,19 +1,21 @@
 import css from "./Products.module.css";
 import Plan from "../../assets/plane.png";
-import { ProductsData } from "../../data/products";
+// import { ProductsData } from "../../data/products";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Link } from "react-router-dom";
 import ProductsList from "../UI/ProductsList";
+import { useSelector } from "react-redux";
 function Products({ data }) {
+  const products = useSelector(state => state.product.products)
   const [parent] = useAutoAnimate();
-  const [MenuProducts, setMenuProducts] = useState(ProductsData);
+  const [MenuProducts, setMenuProducts] = useState(products);
   const [activeItem, setActiveItem] = useState("all");
   const filter = (type) => {
     if (type === "all") {
-      setMenuProducts(ProductsData);
+      setMenuProducts(products);
     } else {
-      setMenuProducts(ProductsData.filter((product) => product.type === type));
+      setMenuProducts(products.filter((product) => product.type === type));
     }
     setActiveItem(type)
   };

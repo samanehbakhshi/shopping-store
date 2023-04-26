@@ -24,17 +24,16 @@ function ProductShop({ product }) {
       setImageSrc(product.originalSrc);
     }
   };
-  console.log(isHovered);
   const handleProductDetail = (id) => {
     navigate(`/shop/${id}`)
   };
   return (
     <div className={css.productcard}>
-      <div className={css["image_container"]} onClick={()=>handleProductDetail(product.id)}>
+      <div className={css["image_container"]} onClick={()=>handleProductDetail(product.id)}   onMouseOver={handleHover}
+          onMouseOut={handleMouseOut}>
         <img
           className={css.image}
-          onMouseOver={handleHover}
-          onMouseOut={handleMouseOut}
+        
           src={imageSrc}
           alt="example image"
         />

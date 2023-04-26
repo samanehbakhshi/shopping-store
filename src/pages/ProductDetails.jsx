@@ -1,37 +1,35 @@
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 import { useParams } from "react-router-dom";
-import ProductShop from "../components/ProductShop/ProductShop";
 import css from "../components/Styles/ProductDetails.module.css";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
-import { ShoppingBagIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { BiCart } from "react-icons/bi";
-import image1 from "../assets/1.jpg";
-import image2 from "../assets/2.jpg";
-import image3 from "../assets/3.jpg";
+
 import TitleBar from "../components/TitleBar/TitleBar";
+import { useSelector } from "react-redux";
+import ProductShopList from "../components/UI/ProductShopList";
 
 function ProductDetails() {
   const { id } = useParams();
+  const products = useSelector(state=> state.product.products)
+   const mainProduct = (products.filter(product => product.id == id))[0]
   return (
     <div className={css.container}>
       <TitleBar title="shop" />
       <div className={css.productDetails}>
         <div className={css["product_image"]}>
           <div className={css["main_image"]}>
-            <img src={image1} alt="" />
+            <img src={mainProduct.img} alt="" />
             <div className={css.overlay} />
           </div>
           <div className={css["other_image"]}>
-            <img src={image2} alt="" />
-            <img src={image3} alt="" />
+            <img src={mainProduct.originalSrc} alt="" />
+            <img src={mainProduct.hoverSrc} alt="" />
           </div>
         </div>
         <div className={css["product_details"]}>
           <div className={css["prodct_info"]}>
-            <span className={css["product_name"]}>crux for men</span>
-            <span className={css["product_price"]}>$12.99</span>
+            <span className={css["product_name"]}>{mainProduct.name}</span>
+            <span className={css["product_price"]}>${mainProduct.price}</span>
             <p className={css["product_description"]}>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
               tempore facere, aspernatur ab consequatur non voluptas molestias
@@ -45,13 +43,13 @@ function ProductDetails() {
             <div className={css["product_shopItem"]}>
               <div className={css["increaseAndDecrease"]}>
                 <BsArrowDown />
-                <spn className={css["product_number"]}>1</spn>
+                <span className={css["product_number"]}>1</span>
                 <BsArrowUp />
               </div>
               <Link to="/checkout">
                 <span className={css["add_btn"]}>
                   <BiCart />
-                  <spn>Add to cart</spn>
+                  <span>Add to cart</span>
                 </span>
               </Link>
             </div>
@@ -84,7 +82,7 @@ function ProductDetails() {
       </div>
       <div className={css["related_products"]}>
         <h2>Related Products</h2>
-        product card
+        <ProductShopList/>
       </div>
     </div>
   );

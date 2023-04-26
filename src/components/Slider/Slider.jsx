@@ -6,12 +6,22 @@ import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import { ProductsData } from "../../data/products";
 import ProductCard from "../UI/ProductCard";
 import "./Slider.css";
+import { useDispatch, useSelector } from "react-redux";
+// import { ProductsData } from "../../data/products";
 
+import { fetchProducts } from "../../Store/producstSlice";
+import { useEffect } from "react";
 function Slider() {
+  let productsData = useSelector(state=> state.product.products)
+
+
+  useEffect(()=> {
+   productsData = fetchProducts()
+  },[])
+
+  console.log(productsData)
   return (
     <div className="s-container">
       <Swiper
@@ -46,7 +56,7 @@ function Slider() {
           },
         }}
       >
-        {ProductsData.map((slide, index) => (
+        {productsData.map((slide, index) => (
           <SwiperSlide key={index}>
             <ProductCard item={slide} />
           </SwiperSlide>
