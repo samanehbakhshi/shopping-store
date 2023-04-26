@@ -118,6 +118,9 @@
   .search {
     display: none;
   }
+  .fixed-container{
+    padding: 1rem .5rem;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -131,7 +134,7 @@
     flex-direction: column;
     padding: 1rem;
     border-radius: 5px;
-    color: var(--black);
+    color: var(--black); 
   }
   .menu {
     padding-left: 0;
