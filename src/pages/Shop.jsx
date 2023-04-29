@@ -17,7 +17,7 @@ import Pro6 from "../assets/6.jpg";
 
 function Shop() {
   const [selectedOption, setSelectedOption] = useState("");
-  const products = useSelector(state => state.product.products)
+  const products = useSelector((state) => state.product.products);
 
   const options = [
     { label: "Default sorting", value: "default sorting" },
@@ -62,52 +62,50 @@ function Shop() {
   // ];
 
   return (
-        <div className={css["shop_container"]}>
-        <TitleBar title='shop'/>
-        <div className={css.container}>
-          <div className={css["shop__products"]}>
-            <div className={css["shop__lefthand"]}>
-              <div className={css["category__list"]}>
-                <span className={css["category__title"]}>
-                  Product categoreis
-                </span>
-                <ul>
-                  <li>Beauty</li>
-                  <li>Facial</li>
-                  <li>Men</li>
-                  <li>Health</li>
-                </ul>
-              </div>
-              <div className={css.searchbox}>
-                <input type="text" placeholder="Search Products..."></input>
-                <BsSearch />
-              </div>
-              <div className={css["top_ratedproduct"]}>
-                <span>Top rated products</span>
-                {products.map((product) => (
-                  <div className={css.product}>
-                    <img alt="" src={product.originalSrc} />
-                    <div className={css["product__details"]}>
-                      <span>{product.name}</span>
-                      <span>{product.description}</span>
-                      <span>${product.price}</span>
-                    </div>
+    <div className={css["shop_container"]}>
+      <TitleBar title="shop" />
+      <div className={css.container}>
+        <div className={css["shop__products"]}>
+          <div className={css["shop__lefthand"]}>
+            <div className={css["category__list"]}>
+              <span className={css["category__title"]}>Product categoreis</span>
+              <ul>
+                <li>Beauty</li>
+                <li>Facial</li>
+                <li>Men</li>
+                <li>Health</li>
+              </ul>
+            </div>
+            <div className={css.searchbox}>
+              <input type="text" placeholder="Search Products..."></input>
+              <BsSearch />
+            </div>
+            <div className={css["top_ratedproduct"]}>
+              <span>Top rated products</span>
+              {products.map((product) => (
+                <div className={css.product}>
+                  <img alt="" src={product.originalSrc} />
+                  <div className={css["product__details"]}>
+                    <span>{product.name}</span>
+                    <span>{product.details}</span>
+                    <span>${product.price}</span>
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className={css["shop__righthand"]}>
-              <div className={css["right__title"]}>
-                <DropDown options={options} />
-                <div className={css["result"]}>
-                  <span>showing all 2 results.</span>
                 </div>
-              </div>
-              <ProductShopList />
+              ))}
             </div>
+          </div>
+          <div className={css["shop__righthand"]}>
+            <div className={css["right__title"]}>
+              <div className={css["drop__down"]}>
+                <DropDown options={options} />
+              </div>
+              <p className={`${css.result} ${css.reverse}`}>showing all 2 results.</p>
+            </div>
+            <ProductShopList />
           </div>
         </div>
       </div>
+    </div>
   );
 }
 

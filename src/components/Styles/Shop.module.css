@@ -1,5 +1,6 @@
 
 .shop_container {
+  width: 100vw;
   background-color: white;
 }
 .container {
@@ -16,7 +17,6 @@
 .shop__lefthand {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   gap: 1rem;
   
 }
@@ -107,30 +107,30 @@
 
 }
 .product__details span{
-  /* display: block; */
 }
 .shop__righthand {
 display: flex;
 flex-direction: column;
-/* justify-content: space-between; */
 gap: 2rem;
-position: relative;
-  
+
+
 }
 
 .right__title{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4rem;
-}
-.right__title .result{
-  position: absolute;
-  top: 0;
-  right: 0%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) ;
 }
 
+.drop__down{
+  position: relative;
+  z-index: 9999;
+
+}
+
+.result{
+ align-self: center;
+  
+}
 .sort{
   color: #696969 !important;
 }
@@ -147,7 +147,6 @@ position: relative;
   font-size: 1.2rem;
   border: none;
   outline: none;
-  /* background-color: #eee; */
   -webkit-appearance: none; /* for Safari and Chrome */
   -moz-appearance: none; /* for Firefox */
   appearance: none; /* for modern browsers */
@@ -181,4 +180,56 @@ position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
   gap: 2rem;
+}
+
+@media screen and (max-width:325px){
+ .shop__products{
+  display: flex;
+  flex-direction: row;
+
+ }
+}
+
+@media screen and (max-width:865px) {
+  .shop_container{
+    overflow-x: hidden;
+  }
+  .container{
+    width: 80%;
+    margin: 1rem 2rem;
+  }
+  .shop__products{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+  .shop__righthand{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .right__title{
+    margin-bottom: 2rem;
+    align-items: flex-start;
+  }
+  .result{
+    padding: 0 .5rem;
+  }
+}
+
+@media screen and (min-width: 865){
+  .result{
+    justify-self: flex-end;
+  }
+  
+}
+
+
+@media screen and (min-width: 1206px) {
+  .result{
+    justify-self: flex-end;
+  }
+  
 }

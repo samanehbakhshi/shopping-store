@@ -7,10 +7,10 @@
   border: 1px solid var(--bg-light);
   width: 16rem;
   overflow: hidden;
-  position: absolute;
-  top: 0%;
-  left: 0%;
   z-index: 999;
+  position: absolute;
+  top: calc(100% - 50px);
+  left: 0; 
 }
 
 .dropdown__header{
@@ -33,7 +33,6 @@
   font-size: .9rem;
   letter-spacing: 1px;
   padding: 0rem .8rem;
-
 } 
 
 .dropdown__search input {
@@ -44,11 +43,15 @@
   outline: none;
   border: none;
 }
+.dropdown__options{
 
+}
 .dropdown__option {
   border-bottom: 1px solid var(--bg-light);
   padding: .4rem 1rem ;
   width: 100%;
+
+  
 }
 .dropdown__option:hover{
   background-color: var(--bg-light);
@@ -64,3 +67,11 @@
   font-weight: 400;
 }
 
+
+@media screen and (max-width:865px) {
+  .dropdown{
+    top: calc(100% + 50px);
+    margin-bottom: 5rem;
+  }
+  
+}
