@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import css from "../components/Styles/ProductDetails.module.css";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -9,9 +10,28 @@ import { useSelector } from "react-redux";
 import ProductShopList from "../components/UI/ProductShopList";
 
 function ProductDetails() {
+  const [productNumber, setProductNumber] = useState(1);
+  const changeProductNumber = (e) => {
+    setProductNumber(e.target.value);
+  };
+
+  const updateProductNumber = (state) => {
+    if (
+      (productNumber === 1 && state === "down") ||
+      (productNumber === 3 && state === "up")
+    ) {
+      return;
+    }
+
+    if (state === "up") {
+      setProductNumber((productNumber) => productNumber + 1);
+    } else if (state === "down") {
+      setProductNumber((productNumber) => productNumber - 1);
+    }
+  };
   const { id } = useParams();
-  const products = useSelector(state=> state.product.products)
-   const mainProduct = (products.filter(product => product.id == id))[0]
+  const products = useSelector((state) => state.product.products);
+  const mainProduct = products.filter((product) => product.id == id)[0];
   return (
     <div className={css.container}>
       <TitleBar title="shop" />
@@ -42,9 +62,16 @@ function ProductDetails() {
             </p>
             <div className={css["product_shopItem"]}>
               <div className={css["increaseAndDecrease"]}>
-                <BsArrowDown />
-                <span className={css["product_number"]}>1</span>
-                <BsArrowUp />
+                <BsArrowDown onClick={() => updateProductNumber("down")} />
+                <input
+                  type="number"
+                  min={1}
+                  max={3}
+                  value={productNumber}
+                  className={css["product_number"]}
+                  onChange={changeProductNumber}
+                />
+                <BsArrowUp onClick={() => updateProductNumber("up")} />
               </div>
               <Link to="/checkout">
                 <span className={css["add_btn"]}>
@@ -68,21 +95,31 @@ function ProductDetails() {
               </span>
             </div>
           </div>
-          <div className={css["description"]}>Description
-          
-          
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aspernatur eaque esse quas aperiam hic dolor quam, recusandae necessitatibus excepturi repudiandae? Sunt perspiciatis veritatis non cumque omnis itaque voluptatem soluta.lorem
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique iure quae ex possimus minima, cupiditate saepe quasi nemo. Nobis assumenda consequatur reprehenderit quo necessitatibus architecto fuga reiciendis natus soluta nemo.
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quidem, doloribus ab minus at et quis placeat aspernatur corrupti esse excepturi atque vitae molestias maxime animi aperiam sunt quia aliquam.
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis hic, asperiores sequi optio ut ipsum officia amet, esse dolore vero sunt aliquam eaque nisi repellat culpa quibusdam, necessitatibus ad voluptatibus?
-          </p>
+          <div className={css["description"]}>
+            Description
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+              aspernatur eaque esse quas aperiam hic dolor quam, recusandae
+              necessitatibus excepturi repudiandae? Sunt perspiciatis veritatis
+              non cumque omnis itaque voluptatem soluta.lorem Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Similique iure quae ex
+              possimus minima, cupiditate saepe quasi nemo. Nobis assumenda
+              consequatur reprehenderit quo necessitatibus architecto fuga
+              reiciendis natus soluta nemo. Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Quisquam quidem, doloribus ab minus
+              at et quis placeat aspernatur corrupti esse excepturi atque vitae
+              molestias maxime animi aperiam sunt quia aliquam. Lorem ipsum,
+              dolor sit amet consectetur adipisicing elit. Officiis hic,
+              asperiores sequi optio ut ipsum officia amet, esse dolore vero
+              sunt aliquam eaque nisi repellat culpa quibusdam, necessitatibus
+              ad voluptatibus?
+            </p>
           </div>
         </div>
       </div>
       <div className={css["related_products"]}>
         <h2>Related Products</h2>
-        <ProductShopList/>
+        <ProductShopList />
       </div>
     </div>
   );
