@@ -12,6 +12,9 @@ import ProductShopList from "../components/UI/ProductShopList";
 function ProductDetails() {
   const [productNumber, setProductNumber] = useState(1);
   const changeProductNumber = (e) => {
+    if (e.target.value > 3) {
+      console.log("number must be smaller than 3");
+    }
     setProductNumber(e.target.value);
   };
 
@@ -33,7 +36,7 @@ function ProductDetails() {
   const products = useSelector((state) => state.product.products);
   const mainProduct = products.filter((product) => product.id == id)[0];
   return (
-    <div className={css.container}>
+    <div className={css.container} >
       <TitleBar title="shop" />
       <div className={css.productDetails}>
         <div className={css["product_image"]}>
@@ -83,15 +86,21 @@ function ProductDetails() {
             <div className={css["product_information"]}>
               <span className={css["wrapper"]}>
                 <span>sku:</span>
-                <span>1-2</span>
+                <a>1</a>
+                <a>- 2</a>
               </span>
               <span className={css["wrapper"]}>
                 <span>Categories:</span>
-                <span>Cream, For men, Facial</span>
+                <a>Cream,</a>
+                <a> Men,</a>
+                <a>Facial</a>
               </span>
               <span className={css["wrapper"]}>
                 <span>Tags:</span>
-                <span>Aftershave, Cream, For men, Moisturizer</span>
+                <a>Aftershave,</a>
+                <a>Cream,</a>
+                <a>Women,</a>
+                <a>Moisturizer</a>
               </span>
             </div>
           </div>
@@ -117,10 +126,10 @@ function ProductDetails() {
           </div>
         </div>
       </div>
-      <div className={css["related_products"]}>
+      {/* <div className={css["related_products"]}>
         <h2>Related Products</h2>
         <ProductShopList />
-      </div>
+      </div> */}
     </div>
   );
 }

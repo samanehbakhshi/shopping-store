@@ -3,14 +3,16 @@ import css from "./BreadCrumbs.module.css";
 function BreadCrumbs() {
   const location = useLocation();
   const paths = location.pathname.split("/").filter((path) => path !== "");
+  console.log(paths);
   return (
-    <nav className={css.breadcrumb}>
+    <nav className={css.breadcrumbs}>
       <ul className={css.breadcrumb}>
         <li className={css["breadcrumb-item"]}>
           <Link to="/">Home</Link>
         </li>
-        <span>></span>
+        <span className={css.seperator}>></span>
         {paths.map((path, index) => (
+          <>
             <li
               className={`css['breadcrumb-item'] ${
                 index === paths.length - 1 ? css.active : ""
@@ -20,12 +22,16 @@ function BreadCrumbs() {
               {index === paths.length - 1 ? (
                 path
               ) : (
-                <Link to={`/${paths.slice(0, index + 1).join("/")}`}>
+                <Link
+                  to={`/${paths.slice(0, index + 1).join("/")}`}
+                  className={css["breadcrumb-item"]}
+                >
                   {path}
                 </Link>
               )}
             </li>
-     
+            <span className={css.seperator}>></span>
+          </>
         ))}
       </ul>
     </nav>

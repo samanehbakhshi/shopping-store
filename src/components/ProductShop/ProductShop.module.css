@@ -95,10 +95,18 @@
 .product__btn{
   width: 100%;
   color: var(--text-light);
-  font-weight: 500;
+  font-weight: 600;
   font-size: .9rem;
   padding: 1rem 2rem;
   cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+.product__btn a{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.product__btn:hover{
+  color: var(--black);
 }
 .product__btn a{
   display: flex;

@@ -63,12 +63,12 @@ function Shop() {
 
   return (
     <div className={css["shop_container"]}>
-      <TitleBar title="shop" />
+      <TitleBar title="Shop" />
       <div className={css.container}>
         <div className={css["shop__products"]}>
           <div className={css["shop__lefthand"]}>
             <div className={css["category__list"]}>
-              <span className={css["category__title"]}>Product categoreis</span>
+              <span className={css["category__title"]}>Product Categoreis</span>
               <ul>
                 <li>Beauty</li>
                 <li>Facial</li>
@@ -99,7 +99,9 @@ function Shop() {
               <div className={css["drop__down"]}>
                 <DropDown options={options} />
               </div>
-              <p className={`${css.result} ${css.reverse}`}>showing all 2 results.</p>
+              <p className={`${css.result} ${css.reverse}`}>
+                showing all 2 results.
+              </p>
             </div>
             <ProductShopList />
           </div>
