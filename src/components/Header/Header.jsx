@@ -7,6 +7,7 @@ import { GoThreeBars } from "react-icons/go";
 import { BsSearch } from "react-icons/bs";
 import SearchBar from "../Search/SearchBar";
 import { useNavigate } from "react-router-dom";
+import {AiOutlineClose} from 'react-icons/ai'
 
 const Header = ({ styles }) => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Header = ({ styles }) => {
   }, []);
 
   const handleHeaderScroll = () => {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 100) {
       serFixedHeader(true);
     } else {
       serFixedHeader(false);
@@ -71,6 +72,7 @@ const Header = ({ styles }) => {
   const handleHomeClick = (event) => {
     event.preventDefault();
     console.log(event.target)
+    console.log(window.location.pathname)
     if (
       window.location.pathname === "/" ||
       window.location.pathname === "home"
@@ -87,15 +89,18 @@ const Header = ({ styles }) => {
     }
 
   }
+
   return (
     <>
       <div
         className={` ${fixedHeader ? css["fixed-container"] : css.container}`}
         style={{ background: fixedHeader ? "white" : background }}
       >
-        <div className={css.logo}>
+        <div className={css.logo} >
+        <Link to={'/home'}>
           <img src={logo} alt="site logo" />
-          <span>amazon</span>
+          <span >amazon</span>
+          </Link>
         </div>
         <div className={css.right}>
           <div className={css.bars} onClick={toggleMenu}>
@@ -105,6 +110,7 @@ const Header = ({ styles }) => {
             className={css.menu}
             style={{ display: showMenu ? "inherit" : "none" }}
           >
+            {showMenu && <AiOutlineClose className={`${css.closeMenu} ${css.svg}`} onClick={toggleMenu}/>}
             {nav__link.map((item, index) => (
               <li key={index}>
                 {item.path.includes("#") ? (
