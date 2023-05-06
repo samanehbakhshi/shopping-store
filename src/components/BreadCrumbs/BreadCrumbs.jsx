@@ -17,7 +17,7 @@ function BreadCrumbs() {
               className={`css['breadcrumb-item'] ${
                 index === paths.length - 1 ? css.active : ""
               }`}
-              key={path}
+              key={index}
             >
               {index === paths.length - 1 ? (
                 path

@@ -50,8 +50,8 @@ function Shop() {
             </div>
             <div className={css["top_ratedproduct"]}>
               <span>Top rated products</span>
-              {products.map((product) => (
-                <div className={css.product}>
+              {products.map((product,index) => (
+                <div className={css.product} key={index}>
                   <img alt="" src={product.originalSrc} />
                   <div className={css["product__details"]}>
                     <span>{product.name}</span>

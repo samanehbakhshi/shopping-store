@@ -1,0 +1,36 @@
+.container{
+  background-color: white;
+}
+.body{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin: 4rem 10rem;
+  justify-content: center;
+}
+.result__container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.notfindresult{
+  display: flex;
+  padding-bottom: 10rem;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+  .body{
+    margin: 4rem;
+  }
+}
