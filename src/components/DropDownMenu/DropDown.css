@@ -8,7 +8,7 @@
   width: 16rem;
   overflow: hidden;
   z-index: 95;
-  position: absolute;
+  /* position: absolute; */
   top: calc(100% - 50px);
   left: 0; 
 }
@@ -72,6 +72,8 @@
   .dropdown{
     top: calc(100% + 50px);
     margin-bottom: 5rem;
+    width: 12rem;
+    font-size: .8rem;
   }
 }
 

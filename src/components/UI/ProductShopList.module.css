@@ -1,0 +1,21 @@
+/* Style the product list container */
+.product__list{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+
+/* Media queries for responsive design */
+@media  screen and (max-width:768px) {
+  .product__list{
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  }
+}
+@media  screen and (max-width:480px) {
+  .product__list{
+    grid-template-columns: repeat(auto-fit, minmax(100%,1fr));
+  }
+}

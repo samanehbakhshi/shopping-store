@@ -34,12 +34,12 @@
   bottom: 25%;
 }
 .cart2 > svg {
-  width: 20px;
-  height: 20px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
   background-color: white;
-  border-radius: 50%;
-  border: 6px solid var(--black);
-  padding: 10px;
+  border-radius: 50%; 
+  border: 2px solid var(--black);
 }
 .signup {
   background-color: white;
@@ -59,9 +59,9 @@
   border-radius: 50%;
   border: 1px solid skyblue;
   display: flex;
-  width: 20px;
-  height: 20px;
-  padding: 5px;
+  width: 1rem;
+  height: 1rem;
+  padding: 14px;
   align-items: center;
   justify-content: center;
 }
@@ -188,10 +188,10 @@
      top: 50%;
      right: 20%;
   }
-  .cart2 >svg{
+  /* .cart2 >svg{
     width: 15px;
     height: 15px;
-  }
+  } */
   .signup{
     font-size:.7rem;
     padding: 5px;
@@ -203,10 +203,10 @@
   .cart2{
     top: 70%;
   }
-  .cart2>svg{
+  /* .cart2>svg{
     border: 2px solid var(--black);
     padding: .4rem;
-  }
+  } */
   .signup{
     font-size: .6em;
     gap: 0;

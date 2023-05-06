@@ -6,14 +6,7 @@ import { useSelector } from "react-redux";
 import DropDown from "../components/DropDownMenu/DropDown";
 import TitleBar from "../components/TitleBar/TitleBar";
 import ProductShopList from "../components/UI/ProductShopList";
-import Header from "../components/Header/Header";
-import Image from "../assets/img1.png";
-import Pro1 from "../assets/1.jpg";
-import Pro2 from "../assets/2.jpg";
-import Pro3 from "../assets/3.jpg";
-import Pro4 from "../assets/4.jpg";
-import Pro5 from "../assets/5.jpg";
-import Pro6 from "../assets/6.jpg";
+
 
 function Shop() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -34,32 +27,7 @@ function Shop() {
     },
   ];
 
-  // const data = [
-  //   {
-  //     id: 0,
-  //     name: "shampoo",
-  //     description: "skin Care",
-  //     price: 32,
-  //     originalSrc: Pro1,
-  //     hoverSrc: Pro4,
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "soap",
-  //     description: "skin washing",
-  //     price: 2.43,
-  //     originalSrc: Pro2,
-  //     hoverSrc: Pro5,
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "brush",
-  //     description: "tooth brush",
-  //     price: 32.4,
-  //     originalSrc: Pro3,
-  //     hoverSrc: Pro6,
-  //   },
-  // ];
+
 
   return (
     <div className={css["shop_container"]}>
@@ -95,14 +63,14 @@ function Shop() {
             </div>
           </div>
           <div className={css["shop__righthand"]}>
-            <div className={css["right__title"]}>
+            {/* <div className={css["right__title"]}>
               <div className={css["drop__down"]}>
                 <DropDown options={options} />
               </div>
               <p className={`${css.result} ${css.reverse}`}>
                 showing all 2 results.
               </p>
-            </div>
+            </div> */}
             <ProductShopList />
           </div>
         </div>

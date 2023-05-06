@@ -1,4 +1,4 @@
-import css from '../Styles/Shop.module.css';
+import css from './ProductShopList.module.css';
 import ProductShop from '../ProductShop/ProductShop';
 import { useSelector } from 'react-redux';
 function ProductShopList() {
