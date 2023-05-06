@@ -13,24 +13,29 @@ function BreadCrumbs() {
         <span className={css.seperator}>></span>
         {paths.map((path, index) => (
           <>
-            <li
-              className={`css['breadcrumb-item'] ${
-                index === paths.length - 1 ? css.active : ""
-              }`}
-              key={index}
-            >
+          {path.includes('search') ? <li >serch result for  <span className={css.result}>{path.slice(1, 1)}</span></li>: <>
+           <li
+            className={`css['breadcrumb-item'] ${
+              index === paths.length - 1 ? css.active : ""
+            }`}
+            key={index}
+              >
               {index === paths.length - 1 ? (
                 path
-              ) : (
+                ) : (
                 <Link
                   to={`/${paths.slice(0, index + 1).join("/")}`}
                   className={css["breadcrumb-item"]}
-                >
+                  >
                   {path}
                 </Link>
               )}
+           
             </li>
             <span className={css.seperator}>></span>
+              </>
+            }
+          
           </>
         ))}
       </ul>

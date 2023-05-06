@@ -26,6 +26,10 @@
 
 }
 
+.result{
+  padding: 0 .2rem;
+}
+
 .breadcrumb > span:last-child  {
   font-size: 0;
 }
