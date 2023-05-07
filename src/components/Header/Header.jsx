@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import css from "./Header.module.css";
 import logo from "../../assets/logo.png";
@@ -7,13 +7,16 @@ import { GoThreeBars } from "react-icons/go";
 import { BsSearch } from "react-icons/bs";
 import SearchBar from "../Search/SearchBar";
 import { useNavigate } from "react-router-dom";
-import {AiOutlineClose} from 'react-icons/ai'
+import {AiOutlineClose} from 'react-icons/ai';
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const Header = ({ styles }) => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(true);
   const [openSearchBox, setOpenSearchBox] = useState(false);
   const [fixedHeader, serFixedHeader] = useState(false);
+  
+
   const nav__link = [
     { path: "home", display: "Home" },
     { path: "#testimonials", display: "Testimonials" },
@@ -90,6 +93,10 @@ const Header = ({ styles }) => {
 
   }
 
+
+
+
+
   return (
     <>
       <div
@@ -133,10 +140,13 @@ const Header = ({ styles }) => {
             ))}
           <div className={css.icons}>
             <BsSearch onClick={(event) => handleSearchBox(event, true)} className={css.svg} />
-            <span className={css.cart__box}>
+            <Link to={'cart'}>
+
+            <span  className={css.cart__box} >
               <CgShoppingBag className={`${css.cart} ${css.svg} `} />
               <span className={css.badge}>1</span>
             </span>
+            </Link>
           </div>
           </ul>
         </div>

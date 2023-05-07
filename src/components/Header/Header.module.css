@@ -59,7 +59,11 @@
 }
 .cart__box {
   position: relative;
+  transition: all 1s ease-in-out;
 }
+
+
+
 .svg {
   width: 1.4rem;
   height: 1.2rem;
