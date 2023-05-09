@@ -9,8 +9,12 @@ import SearchBar from "../Search/SearchBar";
 import { useNavigate } from "react-router-dom";
 import {AiOutlineClose} from 'react-icons/ai';
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import { useSelector } from "react-redux";
 
 const Header = ({ styles }) => {
+const items = useSelector(state=> state.cart.items)
+const itemNumbers = items.reduce((total, item) =>  total+ item.quantity, 0)
+
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(true);
   const [openSearchBox, setOpenSearchBox] = useState(false);
@@ -144,7 +148,7 @@ const Header = ({ styles }) => {
 
             <span  className={css.cart__box} >
               <CgShoppingBag className={`${css.cart} ${css.svg} `} />
-              <span className={css.badge}>1</span>
+              <span className={css.badge}>{itemNumbers}</span>
             </span>
             </Link>
           </div>

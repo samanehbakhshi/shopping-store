@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import { BiCart } from "react-icons/bi";
 
 import TitleBar from "../components/TitleBar/TitleBar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ProductShopList from "../components/UI/ProductShopList";
+import {addItem, removeItem} from '../Store/cartSlice'
 
 function ProductDetails() {
+  const dispatch = useDispatch()
   const [productNumber, setProductNumber] = useState(1);
   const changeProductNumber = (e) => {
     if (e.target.value > 3) {
@@ -35,6 +37,10 @@ function ProductDetails() {
   const { id } = useParams();
   const products = useSelector((state) => state.product.products);
   const mainProduct = products.filter((product) => product.id == id)[0];
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item))
+  }
   return (
     <div className={css.container} >
       <TitleBar title="shop" />
@@ -76,12 +82,12 @@ function ProductDetails() {
                 />
                 <BsArrowUp onClick={() => updateProductNumber("up")} />
               </div>
-              <Link to="/checkout">
-                <span className={css["add_btn"]}>
+              
+                <span className={css["add_btn"]} onClick={()=>handleAddItem(mainProduct)}>
                   <BiCart />
-                  <span>Add to cart</span>
+                  <span >Add to cart</span>
                 </span>
-              </Link>
+              
             </div>
             <div className={css["product_information"]}>
               <span className={css["wrapper"]}>
