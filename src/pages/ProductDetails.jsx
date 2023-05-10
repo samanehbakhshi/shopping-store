@@ -2,47 +2,39 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import css from "../components/Styles/ProductDetails.module.css";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
-import { Link } from "react-router-dom";
 import { BiCart } from "react-icons/bi";
-
 import TitleBar from "../components/TitleBar/TitleBar";
 import { useSelector, useDispatch } from "react-redux";
-import ProductShopList from "../components/UI/ProductShopList";
-import {addItem, removeItem} from '../Store/cartSlice'
+import { addItem } from "../Store/cartSlice";
 
 function ProductDetails() {
-  const dispatch = useDispatch()
-  const [productNumber, setProductNumber] = useState(1);
-  const changeProductNumber = (e) => {
-    if (e.target.value > 3) {
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1);
+
+  const changeQuantity = (e) => {
+    if (e.target.value > 5) {
       console.log("number must be smaller than 3");
     }
-    setProductNumber(e.target.value);
+    setQuantity(Number(e.target.value) || 1);
   };
 
-  const updateProductNumber = (state) => {
-    if (
-      (productNumber === 1 && state === "down") ||
-      (productNumber === 3 && state === "up")
-    ) {
-      return;
-    }
-
-    if (state === "up") {
-      setProductNumber((productNumber) => productNumber + 1);
-    } else if (state === "down") {
-      setProductNumber((productNumber) => productNumber - 1);
-    }
+  const handleDecreaseQuantity = () => {
+      setQuantity((prevQuantity) => prevQuantity > 1? prevQuantity - 1: 1);
+  };
+  const handleIncreaseQuantity = () => {
+      setQuantity((prevQuantity) =>
+        prevQuantity < 5 ? prevQuantity + 1 : prevQuantity
+      );
   };
   const { id } = useParams();
   const products = useSelector((state) => state.product.products);
   const mainProduct = products.filter((product) => product.id == id)[0];
 
-  const handleAddItem = (item) => {
-    dispatch(addItem(item))
-  }
+  const handleAddItem = (item, quantity) => {
+    dispatch(addItem({ item, quantity }));
+  };
   return (
-    <div className={css.container} >
+    <div className={css.container}>
       <TitleBar title="shop" />
       <div className={css.productDetails}>
         <div className={css["product_image"]}>
@@ -71,23 +63,25 @@ function ProductDetails() {
             </p>
             <div className={css["product_shopItem"]}>
               <div className={css["increaseAndDecrease"]}>
-                <BsArrowDown onClick={() => updateProductNumber("down")} />
+                <BsArrowDown onClick={handleDecreaseQuantity} />
                 <input
                   type="number"
                   min={1}
                   max={3}
-                  value={productNumber}
+                  value={quantity}
                   className={css["product_number"]}
-                  onChange={changeProductNumber}
+                  onChange={changeQuantity}
                 />
-                <BsArrowUp onClick={() => updateProductNumber("up")} />
+                <BsArrowUp onClick={handleIncreaseQuantity} />
               </div>
-              
-                <span className={css["add_btn"]} onClick={()=>handleAddItem(mainProduct)}>
-                  <BiCart />
-                  <span >Add to cart</span>
-                </span>
-              
+
+              <span
+                className={css["add_btn"]}
+                onClick={() => handleAddItem(mainProduct, quantity)}
+              >
+                <BiCart />
+                <span>Add to cart</span>
+              </span>
             </div>
             <div className={css["product_information"]}>
               <span className={css["wrapper"]}>

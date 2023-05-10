@@ -2,14 +2,15 @@ import css from "./ProductShop.module.css";
 import { useState } from "react";
 import { BiCart } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {addItem} from '../../Store/cartSlice'
 
 function ProductShop({ product }) {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [imageSrc, setImageSrc] = useState(product.originalSrc);
-  const handleSelect = (event) => {
-    setSelectedOption(event.target.value);
-  };
+
   const handleHover = () => {
     console.log("hover");
     if (!isHovered) {
@@ -27,6 +28,9 @@ function ProductShop({ product }) {
   const handleProductDetail = (id) => {
     navigate(`/shop/${id}`)
   };
+  const handleAddItem = (item) => {
+    dispatch(addItem({item}));
+  }
   return (
     <div className={css.productcard}>
       <div className={css["image_container"]} onClick={()=>handleProductDetail(product.id)}   onMouseOver={handleHover}
@@ -47,10 +51,10 @@ function ProductShop({ product }) {
         <span className={css["product__price"]}>${product.price}</span>
       </div>
       <div className={css["product__btn"]}>
-        <Link to="checkout">
+        <a onClick={()=>handleAddItem(product)}>
           Add To cart
           <BiCart />
-        </Link>
+        </a>
       </div>
     </div>
   );
