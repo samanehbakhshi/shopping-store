@@ -19,6 +19,7 @@
 .shop-list{
   padding: 2rem;
   border: 1px solid var(--bg-light);
+  border-radius: 12px;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +30,7 @@
 }
 .shop-list-item{
   border: 1px solid var(--bg-light);
+  border-radius: 12px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

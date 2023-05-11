@@ -1,9 +1,7 @@
 import css from "./Products.module.css";
 import Plan from "../../assets/plane.png";
-// import { ProductsData } from "../../data/products";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { Link } from "react-router-dom";
 import ProductsList from "../UI/ProductsList";
 import { useSelector } from "react-redux";
 function Products({ data }) {

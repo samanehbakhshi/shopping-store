@@ -6,7 +6,9 @@ import ProductDetails from "../pages/ProductDetails";
 import Checkout from "../pages/Checkout";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
 import SearchResult from "../pages/SearchResult";
+
 function Routers() {
   return (
     <Routes>
@@ -17,6 +19,7 @@ function Routers() {
       <Route path="cart" element={<Cart />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="signin" element={<Signin />} />
       <Route path="checkout" element={<Checkout />} />
       <Route path="/search/:query" element={<SearchResult />} />
     </Routes>

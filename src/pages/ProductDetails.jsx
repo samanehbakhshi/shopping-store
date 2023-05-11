@@ -12,10 +12,7 @@ function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
 
   const changeQuantity = (e) => {
-    if (e.target.value > 5) {
-      console.log("number must be smaller than 3");
-    }
-    setQuantity(Number(e.target.value) || 1);
+    setQuantity((Number(e.target.value)));
   };
 
   const handleDecreaseQuantity = () => {
