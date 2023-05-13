@@ -45,7 +45,9 @@ const Header = ({ styles }) => {
     }
   };
   const toggleMenu = () => {
+    console.log(showMenu)
     setShowMenu((showMenu) => !showMenu);
+    console.log(showMenu)
   };
 
   const handleSearchBox = (event, isOpen) => {
@@ -108,20 +110,17 @@ const Header = ({ styles }) => {
             <span>amazon</span>
           </Link>
         </div>
+         
         <div className={css.right}>
-          <div className={css.bars} onClick={toggleMenu}>
-            <GoThreeBars />
+           <div className={css.bars} onClick={toggleMenu}>
+            {showMenu ? <AiOutlineClose  className={`${css.closeMenu} ${css.svg}`}
+                />: <GoThreeBars className={`${css.svg} ${css.openMenu}`}/>}
           </div>
           <ul
             className={css.menu}
             style={{ display: showMenu ? "inherit" : "none" }}
           >
-            {showMenu && (
-              <AiOutlineClose
-                className={`${css.closeMenu} ${css.svg}`}
-                onClick={toggleMenu}
-              />
-            )}
+            
             {nav__link.map((item, index) => (
               <li key={index}>
                 {item.path.includes("#") ? (
@@ -142,6 +141,8 @@ const Header = ({ styles }) => {
                 )}
               </li>
             ))}
+          </ul>
+        </div>
             <div className={css.icons}>
               <BsSearch
                 onClick={(event) => handleSearchBox(event, true)}
@@ -161,8 +162,6 @@ const Header = ({ styles }) => {
                 )}
               </Link>
             </div>
-          </ul>
-        </div>
       </div>
       {openSearchBox && (
         <div className={css["search_header"]}>

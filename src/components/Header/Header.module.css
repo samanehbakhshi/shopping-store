@@ -29,7 +29,7 @@
 }
 
 .right {
-  flex: 4;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -50,7 +50,7 @@
 }
 
 .icons {
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -106,14 +106,17 @@
     align-items: flex-start;
     font-size: 0.8rem;
     gap: 1rem;
-    z-index: 20000;
-    position: absolute;
-    right: 1.2rem;
-    top: 1rem;
+    z-index: 20000; 
+     position: absolute;
+    right: .2rem;
+    top: .5rem;
     padding: 1rem;
   }
   .bars {
     display: block;
+    position: absolute;
+    top: 1.1rem;
+    right: .2rem;
   }
   .menu > li:hover {
     color: var(--pink);
@@ -125,7 +128,9 @@
     padding: 1rem 0.5rem;
   }
   .icons {
-    flex-direction: column;
+   justify-content: flex-end;
+   margin-right: .5rem;
+   
   }
 
   .logo img {
@@ -141,8 +146,11 @@
   .closeMenu {
     display: block !important;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 0px;
+    top: 0px;
+    z-index: 30000;
+  }
+  .openMenu {
   }
   .fixed-container {
     display: none;
