@@ -1,18 +1,18 @@
 # Shopping Project
-An e-commerce application for buying skin care products made width React and Redux.
+An e-commerce application for buying skin care products made with React and Redux.
 
 ## Screenshots
 ![home page image](https://github.com/samanehbakhshi/shopping-store/blob/main/Screenshot%20(32).png)
 
 ## Inistalletion 
 1. clone the repository:
-(https://github.com/samanehbakhshi/shopping-store)
-2. Navigate to the project directory
-cd shopping-store
-3. Install dependencies
-npm install
-4. Start the application
-npm run dev
+`(https://github.com/samanehbakhshi/shopping-store)`
+2. Navigate to the project directory:
+`cd shopping-store`
+3. Install dependencies:
+`npm install`
+4. Start the application:
+`npm run dev`
 The project will be running on `http://localhost:3000` in your browser.
 
 ### Prerequisites
