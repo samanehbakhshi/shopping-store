@@ -1,6 +1,9 @@
 # Shopping Project
 An e-commerce application for buying skin care products made width React and Redux.
 
+## Screenshots
+![home page image](https://github.com/samanehbakhshi/shopping-store/blob/main/Screenshot%20(32).png)
+
 ## Inistalletion 
 1. clone the repository:
 (https://github.com/samanehbakhshi/shopping-store)
@@ -19,18 +22,18 @@ Before running the project, make sure you have the following installed:
 - npm (version 9.5.0 or higher)
 
 ## Technologies used 
- -HTML
- -CSS
- -JavaScript
- -react (18.2.0)
- -react-compare-image (3.3.0)
- -react-dom (18.2.0)
- -react-icons (4.8.0)
- -react-redux (8.0.5)
- -react-router-dom (6.9.0)
- -redux (4.2.1)
- -swiper (9.1.1)
- -formkit/auto-animate (1.0.0-beta.6)
- -@heroicons/react (1.0.6)
- -@reduxjs/toolkit (1.9.4)
- -framer-motion (10.9.1)
+ * HTML
+ * CSS
+ * JavaScript
+ * React 
+ * react-compare-image 
+ * react-dom 
+ * react-icons 
+ * react-redux 
+ * react-router-dom (6.9.0)
+ * redux 
+ * swiper (9.1.1)
+ * formkit/auto-animate 
+ * @heroicons/react 
+ * @reduxjs/toolkit
+ * framer-motion 
