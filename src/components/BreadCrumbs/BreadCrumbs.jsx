@@ -10,7 +10,7 @@ function BreadCrumbs() {
         <li className={css["breadcrumb-item"]}>
           <Link to="/">Home</Link>
         </li>
-        <span className={css.seperator}>></span>
+        <span className={css.seperator}>{">"}</span>
         {paths.map((path, index) => (
           <>
           {path.includes('search') ? <li >serch result for  <span className={css.result}>{path.slice(1, 1)}</span></li>: <>
@@ -32,7 +32,7 @@ function BreadCrumbs() {
               )}
            
             </li>
-            <span className={css.seperator}>></span>
+            <span className={css.seperator}>{">"}</span>
               </>
             }
           
