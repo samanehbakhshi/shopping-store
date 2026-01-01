@@ -12,15 +12,15 @@ import SearchResult from "../pages/SearchResult";
 function Routers() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="home" replace/>} />
-      <Route path="home" element={<Home />} />
-      <Route path="shop" element={<Shop />} />
-      <Route path="shop/:id" element={<ProductDetails />} />
-      <Route path="cart" element={<Cart />} />
-      <Route path="login" element={<Login />} />
-      <Route path="signup" element={<Signup />} />
-      <Route path="signin" element={<Signin />} />
-      <Route path="checkout" element={<Checkout />} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/shop/:id" element={<ProductDetails />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/signin" element={<Signin />} />
+      <Route path="/checkout" element={<Checkout />} />
       <Route path="/search/:query" element={<SearchResult />} />
     </Routes>
   );
