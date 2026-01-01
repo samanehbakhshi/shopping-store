@@ -14,7 +14,7 @@ import { SlUserFollowing, SlUserUnfollow } from "react-icons/sl";
 
 const Header = ({ styles }) => {
   const userInfo = useSelector((state) => state.auth);
-  console.log(userInfo)
+
   const items = useSelector((state) => state.cart.items);
   const itemNumbers = items.reduce((total, item) => total + item.quantity, 0);
 
@@ -44,21 +44,18 @@ const Header = ({ styles }) => {
       serFixedHeader(false);
     }
   };
-  const toggleMenu = () => {
-    console.log(showMenu)
-    setShowMenu((showMenu) => !showMenu);
-    console.log(showMenu)
+  const toggleMenu = () => {    setShowMenu((showMenu) => !showMenu);
+
   };
 
   const handleSearchBox = (event, isOpen) => {
     isOpen ? setOpenSearchBox(true) : setOpenSearchBox(false);
-    console.log("search", event, openSearchBox);
+
   };
   const background = styles.includes("/home") ? "#f8e367" : "white";
 
   const handleClickToCertainPlace = (event) => {
     event.preventDefault();
-    console.log(event.target.pathname);
     const element = document.querySelector(event.target.hash);
 
     // If were in another page, and clicked on the link to certain place on the home page
@@ -80,8 +77,6 @@ const Header = ({ styles }) => {
   };
   const handleHomeClick = (event) => {
     event.preventDefault();
-    console.log(event.target);
-    console.log(window.location.pathname);
     if (
       window.location.pathname === "/" ||
       window.location.pathname === "home"

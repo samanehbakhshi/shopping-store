@@ -12,14 +12,14 @@ function ProductShop({ product }) {
   const [imageSrc, setImageSrc] = useState(product.originalSrc);
 
   const handleHover = () => {
-    console.log("hover");
+
     if (!isHovered) {
       setIsHovered(true);
       setImageSrc(product.hoverSrc);
     }
   };
   const handleMouseOut = () => {
-    console.log("mouse out");
+
     if (isHovered) {
       setIsHovered(false);
       setImageSrc(product.originalSrc);

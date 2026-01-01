@@ -12,10 +12,10 @@ import SearchResult from "../pages/SearchResult";
 function Routers() {
   return (
     <Routes>
-      {/* <Route path="/" element={<Home/>} /> */}
-      <Route path="/" element={<div>HOME STATIC</div>} />
+      <Route path="/" element={<Home/>} />
+      {/* <Route path="/" element={<div>HOME STATIC</div>} /> */}
 
-      {/* <Route path="/home" element={<Home />} /> */}
+      <Route path="/home" element={<Home />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/shop/:id" element={<ProductDetails />} />
       <Route path="/cart" element={<Cart />} />

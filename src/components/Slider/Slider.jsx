@@ -1,15 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-// import swper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import ProductCard from "../UI/ProductCard";
 import "./Slider.css";
-import { useDispatch, useSelector } from "react-redux";
-// import { ProductsData } from "../../data/products";
+import {  useSelector } from "react-redux";
+
 
 import { fetchProducts } from "../../Store/producstSlice";
 import { useEffect } from "react";
@@ -17,11 +14,10 @@ function Slider() {
   let productsData = useSelector(state=> state.product.products)
 
 
-  useEffect(()=> {
-   productsData = fetchProducts()
-  },[])
+  // useEffect(()=> {
+  //  productsData = fetchProducts()
+  // },[])
 
-  console.log(productsData)
   return (
     <div className="s-container">
       <Swiper
@@ -32,7 +28,7 @@ function Slider() {
         modules={[Pagination, Navigation]}
         className="mySwiper"
         navigation={true}
-        loopFillGroupWithBlank={true}
+        // loopfillgroupwithblank={true}
         breakpoints={{
           1024: {
             slidesPerView: 3,

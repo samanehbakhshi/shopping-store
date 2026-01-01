@@ -9,12 +9,10 @@ function SearchBar(props) {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log(event.target.query.value);
     if (searchedTerm.trim().length > 0) {
       const query = event.target.query.value;
       navigate(`search/${query}`);
     } else {
-      console.log("please enter a search term");
     }
   };
 

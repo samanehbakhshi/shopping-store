@@ -14,12 +14,11 @@ function CartItem( {item}) {
   const {id,price,quantity, name} = item
 
   const handleremoveItem =(item) => {
-    console.log(item)
+
     dispatch(removeItem(item));
   }
-  console.log(items)
 const handleIncreaseItem = ()=>{
-  console.log('add')
+
   dispatch(updatedQuantity({id:id, quantity: 1 }))
 }
 const handleDecreaseItem = ()=>{

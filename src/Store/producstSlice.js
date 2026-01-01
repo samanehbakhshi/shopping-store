@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
 import { ProductsData } from "../data/products";
 
 const initialState = {
@@ -19,7 +18,6 @@ export const productsSlice = createSlice({
     fetchProductsSuccess(state, action) {
       state.isLoading = false;
       state.products = action.payload;
-      console.log(action.payload)
     },
     fetchProductsFailure(state, action) {
       state.isLoading = false;
@@ -50,7 +48,7 @@ export const fetchProducts = ()=> async (dispatch) =>{
   try{
     dispatch(fetchProductsStart());
     const response = await axios.request(options);
-    console.log(response.data)
+
     dispatch(fetchProductsSuccess(response.data));
   }catch(error){
     dispatch(fetchProductsFailure(error.message));
@@ -58,14 +56,6 @@ export const fetchProducts = ()=> async (dispatch) =>{
 }
 
 
-// import axios from 'axios';
 
-
-// try {
-// 	const response = await axios.request(options);
-// 	console.log(response.data);
-// } catch (error) {
-// 	console.error(error);
-// }
 
 export default productsSlice.reducer;

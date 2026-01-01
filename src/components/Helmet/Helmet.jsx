@@ -1,6 +1,6 @@
-function Helmet(props) {
-  document.title = "Amazon -" + props.title;
-  return <div>{props.children}</div>;
+function Helmet({title, children}) {
+  document.title = "Amazon -" + title;
+  return <div>{children}</div>;
 }
 
 export default Helmet;

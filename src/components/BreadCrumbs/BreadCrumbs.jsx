@@ -1,9 +1,10 @@
 import { useLocation, Link } from "react-router-dom";
 import css from "./BreadCrumbs.module.css";
+import React from "react";
 function BreadCrumbs() {
   const location = useLocation();
   const paths = location.pathname.split("/").filter((path) => path !== "");
-  console.log(paths);
+
   return (
     <nav className={css.breadcrumbs}>
       <ul className={css.breadcrumb}>
@@ -12,8 +13,8 @@ function BreadCrumbs() {
         </li>
         <span className={css.seperator}>{">"}</span>
         {paths.map((path, index) => (
-          <>
-          {path.includes('search') ? <li >serch result for  <span className={css.result}>{path.slice(1, 1)}</span></li>: <>
+          <React.Fragment key={index}>
+          {path.includes('search') ? <li key={index}f>serch result for  <span className={css.result}>{path.slice(1, 1)}</span></li>: <>
            <li
             className={`css['breadcrumb-item'] ${
               index === paths.length - 1 ? css.active : ""
@@ -36,7 +37,7 @@ function BreadCrumbs() {
               </>
             }
           
-          </>
+          </React.Fragment>
         ))}
       </ul>
     </nav>
