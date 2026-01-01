@@ -1,7 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import "./DropDown.css";
 import { SlArrowDown } from "react-icons/sl";
-import React, { useRef, useEffect } from "react";
+import  { useRef, useEffect } from "react";
 
 function DropDown({ options }) {
   const [isOpen, setIsOpen] = useState(false);

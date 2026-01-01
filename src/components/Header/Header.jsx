@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import css from "./Header.module.css";
 import logo from "../../assets/logo.png";
@@ -8,7 +8,6 @@ import { BsSearch } from "react-icons/bs";
 import SearchBar from "../Search/SearchBar";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useSelector } from "react-redux";
 import { SlUserFollowing, SlUserUnfollow } from "react-icons/sl";
 

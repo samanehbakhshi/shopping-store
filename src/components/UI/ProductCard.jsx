@@ -1,6 +1,4 @@
-// import 
 import css from '../Styles/ProductCard.module.css';
-import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 function ProductCard({item, classes}) {

@@ -2,7 +2,6 @@ import css from './ShoppingCart.module.css'
 import { AiOutlineClose } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { cartSlice } from '../../Store/cartSlice';
 import { updatedQuantity , removeItem} from '../../Store/cartSlice';
 function CartItem( {item}) {
   const items = useSelector(state => state.cart.items)

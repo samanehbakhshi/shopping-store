@@ -7,9 +7,6 @@ import ProductCard from "../UI/ProductCard";
 import "./Slider.css";
 import {  useSelector } from "react-redux";
 
-
-import { fetchProducts } from "../../Store/producstSlice";
-import { useEffect } from "react";
 function Slider() {
   let productsData = useSelector(state=> state.product.products)
 

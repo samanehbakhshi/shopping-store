@@ -45,7 +45,7 @@ function Shop() {
               </ul>
             </div>
             <div className={css.searchbox}>
-              <input type="text" placeholder="Search Products..."></input>
+              <input type="text" placeholder="Search Products..." name="search"></input>
               <BsSearch />
             </div>
             <div className={css["top_ratedproduct"]}>
