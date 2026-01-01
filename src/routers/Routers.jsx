@@ -12,7 +12,7 @@ import SearchResult from "../pages/SearchResult";
 function Routers() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="home" />} />
+      <Route path="/" element={<Navigate to="home" replace/>} />
       <Route path="home" element={<Home />} />
       <Route path="shop" element={<Shop />} />
       <Route path="shop/:id" element={<ProductDetails />} />
