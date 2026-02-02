@@ -39,7 +39,7 @@ function Testimonials() {
           }}
           className={css.tcarousel}
         >
-          {TestimonialsData.map((testimonial, index) => (
+          {TestimonialsData?.map((testimonial, index) => (
             <SwiperSlide key={index}>
               <div className={css.testimonial}>
                 <img src={testimonial.image} />

@@ -6,7 +6,7 @@ import Products from "../components/Products/Products";
 import Testimonials from "../components/Testimonials/Testimonials";
 function Home() {
   return (
-    // <Helmet title="Home">
+    <Helmet title="Home">
     <>
       <Hero />
       <Slider />
@@ -14,7 +14,7 @@ function Home() {
       <Products />
       <Testimonials />
     </>
-    // </Helmet>
+     </Helmet>
   );
 }
 
